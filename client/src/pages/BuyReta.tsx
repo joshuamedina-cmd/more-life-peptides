@@ -72,7 +72,7 @@ export default function BuyReta() {
               <div className="mt-7 rounded-xl border border-slate-200 bg-white p-5 shadow-sm" data-testid="block-pricing">
                 <div className="flex items-baseline justify-between mb-1">
                   <span className="text-[13px] uppercase font-bold tracking-[0.14em] text-slate-500">You Pay (Water)</span>
-                  <span className="text-[28px] font-black text-[#0A1628]">$49.99</span>
+                  <span className="text-[28px] font-black text-[#0A1628]">$150</span>
                 </div>
                 <div className="flex items-baseline justify-between mb-1">
                   <span className="text-[13px] uppercase font-bold tracking-[0.14em] text-[hsl(221,83%,53%)]">You Get (RETA Vial)</span>
@@ -170,7 +170,7 @@ Ready to Buy  →
                 <h3 className="text-[22px] font-extrabold text-[#0A1628]">Bacteriostatic Water · 30 mL</h3>
                 <p className="text-[14px] text-slate-600 mt-2">USP-grade, 0.9% benzyl alcohol. Multiple-dose vial for safe reconstitution of lyophilized peptides.</p>
                 <div className="mt-4 flex items-baseline gap-3">
-                  <span className="text-[24px] font-black text-[#0A1628]">$49.99</span>
+                  <span className="text-[24px] font-black text-[#0A1628]">$150</span>
                 </div>
               </div>
             </div>
