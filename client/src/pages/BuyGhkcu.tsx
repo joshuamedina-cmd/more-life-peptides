@@ -77,12 +77,12 @@ export default function BuyGhkcu() {
                 <div className="flex items-baseline justify-between mb-1">
                   <span className="text-[13px] uppercase font-bold tracking-[0.14em] text-[hsl(221,83%,53%)]">You Get (GHK-Cu Vial)</span>
                   <span className="text-[16px] font-black text-[hsl(221,83%,53%)]">
-                    <span className="line-through text-slate-400 font-bold mr-2">$150</span>FREE
+                    <span className="line-through text-slate-400 font-bold mr-2">$65</span>FREE
                   </span>
                 </div>
                 <div className="mt-3 pt-3 border-t border-slate-200 flex items-baseline justify-between">
                   <span className="text-[12px] font-bold text-slate-600 uppercase tracking-wider">Total Value</span>
-                  <span className="text-[16px] font-extrabold text-emerald-600">Save $150</span>
+                  <span className="text-[16px] font-extrabold text-emerald-600">Save $65</span>
                 </div>
               </div>
 
@@ -194,7 +194,7 @@ Ready to Buy  →
                 </p>
                 <div className="mt-4 flex items-baseline gap-3">
                   <span className="text-[24px] font-black text-[hsl(221,83%,53%)]">FREE</span>
-                  <span className="text-[14px] line-through text-slate-400 font-semibold">$150.00</span>
+                  <span className="text-[14px] line-through text-slate-400 font-semibold">$65.00</span>
                 </div>
               </div>
             </div>

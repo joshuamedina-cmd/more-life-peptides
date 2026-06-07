@@ -41,7 +41,7 @@ const ITEMS: ShopItem[] = [
     slug: "ghk-cu-50mg",
     name: "GHK-Cu",
     dose: "50 MG",
-    price: 119,
+    price: 65,
     image: specGhkcu,
     inStock: true,
     href: "/buy/ghkcu",
