@@ -1,7 +1,7 @@
 import { PageShell } from "@/components/Layout";
 import { Link } from "wouter";
 import waterGhkcuCombo from "@/assets/water_ghkcu_combo.png";
-import bacWaterSolo from "@/assets/bac_water_solo.png";
+import bacWater10ml from "@/assets/bac_water_10ml.png";
 import specGhkcu from "@/assets/spec_ghkcu.png";
 
 // TODO: replace with the real Ecwid / payment link when ready
@@ -63,7 +63,7 @@ export default function BuyGhkcu() {
               </h1>
 
               <p className="text-[16px] text-slate-700 leading-relaxed mt-5" data-testid="text-offer-subhead">
-                Order a 30 mL vial of our USP-grade <strong>Bacteriostatic Water</strong> and we'll send you a vial of
+                Order a 10 mL vial of our USP-grade <strong>Sterile Water with 0.9% Benzyl Alcohol</strong> and we'll send you a vial of
                 <strong> GHK-Cu 50 MG (Copper Tripeptide-1)</strong> on the house. One free research-grade peptide vial,
                 bundled with every water order — shipped together, cold-chain protected.
               </p>
@@ -72,7 +72,7 @@ export default function BuyGhkcu() {
               <div className="mt-7 rounded-xl border border-slate-200 bg-white p-5 shadow-sm" data-testid="block-pricing">
                 <div className="flex items-baseline justify-between mb-1">
                   <span className="text-[13px] uppercase font-bold tracking-[0.14em] text-slate-500">You Pay (Water)</span>
-                  <span className="text-[28px] font-black text-[#0A1628]">$150</span>
+                  <span className="text-[28px] font-black text-[#0A1628]">$65</span>
                 </div>
                 <div className="flex items-baseline justify-between mb-1">
                   <span className="text-[13px] uppercase font-bold tracking-[0.14em] text-[hsl(221,83%,53%)]">You Get (GHK-Cu Vial)</span>
@@ -133,7 +133,7 @@ Ready to Buy  →
           {/* Three-step */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { n: "01", t: "Order the Water", d: "Click the button above and check out securely through our partner cart for the 30 mL BAC water." },
+              { n: "01", t: "Order the Water", d: "Click the button above and check out securely through our partner cart for the 10 mL USP-grade sterile water." },
               { n: "02", t: "We Bundle the GHK-Cu", d: "Every water order auto-ships with a free vial of GHK-Cu 50 MG — lyophilized, lab-tested, no extra steps." },
               { n: "03", t: "Track & Receive", d: "Cold-chain shipped together. You get your COA, tracking, and both products in one box." },
             ].map((step) => (
@@ -161,16 +161,16 @@ Ready to Buy  →
             {/* Water */}
             <div className="rounded-2xl border border-slate-200 bg-white overflow-hidden shadow-sm" data-testid="card-water-detail">
               <div className="bg-gradient-to-br from-[#F0F6FF] to-white p-6 flex items-center justify-center min-h-[360px]">
-                <img src={bacWaterSolo} alt="Bacteriostatic Water 30mL" className="max-h-[340px] w-auto" />
+                <img src={bacWater10ml} alt="10 mL USP-grade sterile water with 0.9% benzyl alcohol" className="max-h-[340px] w-auto" />
               </div>
               <div className="p-6 border-t border-slate-200">
                 <div className="flex items-center gap-2 mb-2">
                   <span className="text-[11px] font-extrabold tracking-[0.18em] text-[hsl(221,83%,53%)] uppercase">You Pay For</span>
                 </div>
-                <h3 className="text-[22px] font-extrabold text-[#0A1628]">Bacteriostatic Water · 30 mL</h3>
-                <p className="text-[14px] text-slate-600 mt-2">USP-grade, 0.9% benzyl alcohol. Multiple-dose vial for safe reconstitution of lyophilized peptides.</p>
+                <h3 className="text-[22px] font-extrabold text-[#0A1628]">10 mL USP-grade Sterile Water with 0.9% Benzyl Alcohol</h3>
+                <p className="text-[14px] text-slate-600 mt-2">USP-grade, 0.9% benzyl alcohol added. Multiple-dose 10 mL vial for safe reconstitution of lyophilized research peptides.</p>
                 <div className="mt-4 flex items-baseline gap-3">
-                  <span className="text-[24px] font-black text-[#0A1628]">$150</span>
+                  <span className="text-[24px] font-black text-[#0A1628]">$65</span>
                 </div>
               </div>
             </div>
