@@ -5,7 +5,7 @@ import bacWaterSolo from "@/assets/bac_water_solo.png";
 import specGhkcu from "@/assets/spec_ghkcu.png";
 
 // TODO: replace with the real Ecwid / payment link when ready
-const PURCHASE_LINK = "https://more-life-peptides.com/products/Bacteriostatic-Water-comes-with-FREE-30mg-USP-p839964180";
+const PURCHASE_LINK = "https://more-life-peptides.com/products/10-ml-USP-grade-sterile-water-with-0-9-benzyl-alcohol-free-100mg-p839979816";
 
 function Star({ className = "" }: { className?: string }) {
   return (
