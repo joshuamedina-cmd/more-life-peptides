@@ -24,7 +24,7 @@ const ITEMS: ShopItem[] = [
     price: 299,
     image: specReta,
     inStock: true,
-    href: "/buy/reta",
+    href: "https://more-life-peptides.com/products/Bacteriostatic-Water-comes-with-FREE-30mg-USP-p839964180",
     blurb: "Triple-receptor research peptide · Lyophilized sodium powder · ≥99% HPLC",
   },
   {
@@ -44,7 +44,7 @@ const ITEMS: ShopItem[] = [
     price: 119,
     image: specGhkcu,
     inStock: true,
-    href: "/shop",
+    href: "https://more-life-peptides.com/products/Bacteriostatic-Water-comes-with-FREE-30mg-USP-p839964180",
     blurb: "Copper tripeptide · Light-sensitive blue powder · ≥99% HPLC",
   },
 ];
@@ -117,6 +117,14 @@ function ShopCard({ item }: { item: ShopItem }) {
 
   if (isSoldOut) {
     return <div>{CardInner}</div>;
+  }
+  const isExternal = item.href.startsWith("http");
+  if (isExternal) {
+    return (
+      <a href={item.href} target="_blank" rel="noopener noreferrer" data-testid={`link-extbuy-${item.slug}`}>
+        {CardInner}
+      </a>
+    );
   }
   return <Link href={item.href}>{CardInner}</Link>;
 }

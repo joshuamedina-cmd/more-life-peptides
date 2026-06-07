@@ -41,12 +41,12 @@ function Hero() {
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4 items-center">
-            <Link href="/shop">
+            <a href="https://more-life-peptides.com/products/Bacteriostatic-Water-comes-with-FREE-30mg-USP-p839964180" target="_blank" rel="noopener noreferrer">
               <button className="bg-[hsl(221,83%,53%)] hover:bg-[hsl(224,76%,48%)] text-white font-bold text-[14px] px-8 py-4 rounded-full transition-all shadow-lg shadow-[hsl(221,83%,53%)]/25 hover:shadow-xl hover:shadow-[hsl(221,83%,53%)]/30 hover:-translate-y-0.5 inline-flex items-center gap-2" data-testid="button-hero-shop">
                 Shop Peptides
                 <ArrowRight className="w-4 h-4" />
               </button>
-            </Link>
+            </a>
             <span className="text-[11px] text-slate-500 max-w-[280px]">
               For in vitro research and laboratory use only. Not for human consumption.
             </span>
@@ -130,7 +130,7 @@ const LAUNCH_PRODUCTS: LaunchProduct[] = [
     price: 299,
     image: specReta,
     inStock: true,
-    href: "/buy/reta",
+    href: "https://more-life-peptides.com/products/Bacteriostatic-Water-comes-with-FREE-30mg-USP-p839964180",
     blurb: "Triple-receptor research peptide · Lyophilized sodium powder · ≥99% HPLC",
   },
   {
@@ -150,7 +150,7 @@ const LAUNCH_PRODUCTS: LaunchProduct[] = [
     price: 119,
     image: specGhkcu,
     inStock: true,
-    href: "/shop",
+    href: "https://more-life-peptides.com/products/Bacteriostatic-Water-comes-with-FREE-30mg-USP-p839964180",
     blurb: "Copper tripeptide · Light-sensitive blue powder · ≥99% HPLC",
   },
 ];
@@ -211,6 +211,14 @@ function LaunchLineupCard({ item }: { item: LaunchProduct }) {
     </div>
   );
   if (isSoldOut) return <div>{inner}</div>;
+  const isExternal = item.href.startsWith("http");
+  if (isExternal) {
+    return (
+      <a href={item.href} target="_blank" rel="noopener noreferrer" data-testid={`link-extbuy-${item.slug}`}>
+        {inner}
+      </a>
+    );
+  }
   return <Link href={item.href}>{inner}</Link>;
 }
 
@@ -229,11 +237,11 @@ function LaunchLineup() {
           {LAUNCH_PRODUCTS.map((item) => <LaunchLineupCard key={item.slug} item={item} />)}
         </div>
         <div className="mt-12 text-center">
-          <Link href="/shop">
+          <a href="https://more-life-peptides.com/products/Bacteriostatic-Water-comes-with-FREE-30mg-USP-p839964180" target="_blank" rel="noopener noreferrer">
             <button className="border-2 border-[hsl(221,83%,53%)] text-[hsl(221,83%,53%)] font-bold text-[14px] px-8 py-3.5 rounded-full hover:bg-[hsl(221,83%,53%)] hover:text-white transition-all inline-flex items-center gap-2" data-testid="button-shop-all">
-              View Shop Page <ArrowRight className="w-4 h-4" />
+              Visit Full Store <ArrowRight className="w-4 h-4" />
             </button>
-          </Link>
+          </a>
         </div>
       </div>
     </section>
@@ -440,9 +448,9 @@ function FeaturedSpecSheets() {
                 <h3 className="text-[20px] font-extrabold text-[#0A1628] mt-1">RETA 30 MG</h3>
                 <p className="text-[13px] text-slate-600 mt-1">Lyophilized sodium powder · ≥99% HPLC</p>
               </div>
-              <Link href="/buy/reta" className="px-4 py-2 rounded-lg bg-[hsl(221,83%,53%)] text-white text-[13px] font-bold hover:bg-[hsl(221,83%,47%)] transition-colors" data-testid="link-shop-reta">
+              <a href="https://more-life-peptides.com/products/Bacteriostatic-Water-comes-with-FREE-30mg-USP-p839964180" target="_blank" rel="noopener noreferrer" className="px-4 py-2 rounded-lg bg-[hsl(221,83%,53%)] text-white text-[13px] font-bold hover:bg-[hsl(221,83%,47%)] transition-colors" data-testid="link-shop-reta">
                 Buy →
-              </Link>
+              </a>
             </div>
           </div>
 
@@ -454,9 +462,9 @@ function FeaturedSpecSheets() {
                 <h3 className="text-[20px] font-extrabold text-[#0A1628] mt-1">Wolverine Blend</h3>
                 <p className="text-[13px] text-slate-600 mt-1">BPC-157 10mg + TB-500 10mg · ≥99% HPLC</p>
               </div>
-              <Link href="/shop" className="px-4 py-2 rounded-lg bg-[hsl(221,83%,53%)] text-white text-[13px] font-bold hover:bg-[hsl(221,83%,47%)] transition-colors" data-testid="link-shop-wolverine">
-                Shop →
-              </Link>
+              <span className="px-4 py-2 rounded-lg bg-slate-100 text-slate-500 text-[13px] font-bold cursor-not-allowed" data-testid="link-shop-wolverine">
+                Sold Out
+              </span>
             </div>
           </div>
 
@@ -468,9 +476,9 @@ function FeaturedSpecSheets() {
                 <h3 className="text-[20px] font-extrabold text-[#0A1628] mt-1">GHK-Cu 50 MG</h3>
                 <p className="text-[13px] text-slate-600 mt-1">Copper tripeptide-1 · ≥99% HPLC</p>
               </div>
-              <Link href="/shop" className="px-4 py-2 rounded-lg bg-[hsl(221,83%,53%)] text-white text-[13px] font-bold hover:bg-[hsl(221,83%,47%)] transition-colors" data-testid="link-shop-ghkcu">
-                Shop →
-              </Link>
+              <a href="https://more-life-peptides.com/products/Bacteriostatic-Water-comes-with-FREE-30mg-USP-p839964180" target="_blank" rel="noopener noreferrer" className="px-4 py-2 rounded-lg bg-[hsl(221,83%,53%)] text-white text-[13px] font-bold hover:bg-[hsl(221,83%,47%)] transition-colors" data-testid="link-shop-ghkcu">
+                Buy →
+              </a>
             </div>
           </div>
         </div>

@@ -5,7 +5,7 @@ import bacWaterSolo from "@/assets/bac_water_solo.png";
 import specReta from "@/assets/spec_reta_30mg.png";
 
 // TODO: replace with the real Ecwid / payment link when ready
-const PURCHASE_LINK = "#";
+const PURCHASE_LINK = "https://more-life-peptides.com/products/Bacteriostatic-Water-comes-with-FREE-30mg-USP-p839964180";
 
 function Star({ className = "" }: { className?: string }) {
   return (
