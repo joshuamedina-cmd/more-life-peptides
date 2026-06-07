@@ -44,7 +44,7 @@ const ITEMS: ShopItem[] = [
     price: 119,
     image: specGhkcu,
     inStock: true,
-    href: "/buy/reta",
+    href: "/buy/ghkcu",
     blurb: "Copper tripeptide · Light-sensitive blue powder · ≥99% HPLC",
   },
 ];

@@ -11,6 +11,7 @@ import Product from "@/pages/Product";
 import About from "@/pages/About";
 import LabReferral from "@/pages/LabReferral";
 import BuyReta from "@/pages/BuyReta";
+import BuyGhkcu from "@/pages/BuyGhkcu";
 
 function AppRouter() {
   return (
@@ -21,6 +22,7 @@ function AppRouter() {
       <Route path="/about" component={About} />
       <Route path="/lab-referral" component={LabReferral} />
       <Route path="/buy/reta" component={BuyReta} />
+      <Route path="/buy/ghkcu" component={BuyGhkcu} />
       <Route component={NotFound} />
     </Switch>
   );

@@ -150,7 +150,7 @@ const LAUNCH_PRODUCTS: LaunchProduct[] = [
     price: 119,
     image: specGhkcu,
     inStock: true,
-    href: "/buy/reta",
+    href: "/buy/ghkcu",
     blurb: "Copper tripeptide · Light-sensitive blue powder · ≥99% HPLC",
   },
 ];
@@ -476,7 +476,7 @@ function FeaturedSpecSheets() {
                 <h3 className="text-[20px] font-extrabold text-[#0A1628] mt-1">GHK-Cu 50 MG</h3>
                 <p className="text-[13px] text-slate-600 mt-1">Copper tripeptide-1 · ≥99% HPLC</p>
               </div>
-              <Link href="/buy/reta" className="px-4 py-2 rounded-lg bg-[hsl(221,83%,53%)] text-white text-[13px] font-bold hover:bg-[hsl(221,83%,47%)] transition-colors" data-testid="link-shop-ghkcu">
+              <Link href="/buy/ghkcu" className="px-4 py-2 rounded-lg bg-[hsl(221,83%,53%)] text-white text-[13px] font-bold hover:bg-[hsl(221,83%,47%)] transition-colors" data-testid="link-shop-ghkcu">
                 Buy →
               </Link>
             </div>
