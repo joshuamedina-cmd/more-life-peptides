@@ -1,27 +1,128 @@
-import { useState, useMemo } from "react";
+import { Link } from "wouter";
 import { PageShell } from "@/components/Layout";
-import { ProductCard } from "@/components/ProductCard";
-import { PRODUCTS } from "@/data/products";
-import { Search } from "lucide-react";
+import { Star } from "lucide-react";
+import specReta from "@/assets/spec_reta_30mg.png";
+import specWolverine from "@/assets/spec_wolverine.png";
+import specGhkcu from "@/assets/spec_ghkcu.png";
 
-const CATEGORIES = ["All", "GLP", "Growth", "Recovery", "Blends", "Metabolic", "Cosmetic", "Neuro", "Immune", "Longevity", "Antioxidant", "Supplies"];
+type ShopItem = {
+  slug: string;
+  name: string;
+  dose: string;
+  price: number;
+  image: string;
+  inStock: boolean;
+  href: string;
+  blurb: string;
+};
+
+const ITEMS: ShopItem[] = [
+  {
+    slug: "reta-30mg",
+    name: "RETATRUTIDE",
+    dose: "30 MG",
+    price: 299,
+    image: specReta,
+    inStock: true,
+    href: "/buy/reta",
+    blurb: "Triple-receptor research peptide · Lyophilized sodium powder · ≥99% HPLC",
+  },
+  {
+    slug: "wolverine-blend",
+    name: "WOLVERINE BLEND",
+    dose: "10 + 10 MG",
+    price: 159,
+    image: specWolverine,
+    inStock: false,
+    href: "/shop",
+    blurb: "BPC-157 + TB-500 recovery blend · Lyophilized · Third-party verified",
+  },
+  {
+    slug: "ghk-cu-50mg",
+    name: "GHK-Cu",
+    dose: "50 MG",
+    price: 119,
+    image: specGhkcu,
+    inStock: true,
+    href: "/shop",
+    blurb: "Copper tripeptide · Light-sensitive blue powder · ≥99% HPLC",
+  },
+];
+
+function ShopCard({ item }: { item: ShopItem }) {
+  const isSoldOut = !item.inStock;
+  const CardInner = (
+    <div
+      className={`group relative bg-white border rounded-2xl overflow-hidden transition-all duration-200 ${
+        isSoldOut
+          ? "border-slate-200 opacity-95"
+          : "border-slate-200 hover:border-[hsl(221,83%,53%)] hover:shadow-xl cursor-pointer"
+      }`}
+      data-testid={`card-product-${item.slug}`}
+    >
+      {/* Sold out ribbon */}
+      {isSoldOut && (
+        <div className="absolute top-4 left-4 z-10">
+          <span className="inline-block bg-slate-900 text-white text-[11px] font-bold tracking-[0.18em] uppercase px-3 py-1.5 rounded-md shadow-md" data-testid={`badge-soldout-${item.slug}`}>
+            Sold Out
+          </span>
+        </div>
+      )}
+
+      {/* Image area */}
+      <div className={`bg-gradient-to-br from-[#F0F5FA] to-[#E1ECF7] aspect-[4/3] flex items-center justify-center p-4 overflow-hidden ${isSoldOut ? "grayscale" : ""}`}>
+        <img
+          src={item.image}
+          alt={`More Life Peptides ${item.name} ${item.dose}`}
+          className={`max-h-full max-w-full object-contain transition-transform duration-300 ${isSoldOut ? "" : "group-hover:scale-105"}`}
+          loading="lazy"
+          data-testid={`img-product-${item.slug}`}
+        />
+      </div>
+
+      {/* Body */}
+      <div className="p-6 border-t border-slate-100">
+        <div className="flex items-center gap-1 text-amber-400 mb-2">
+          {[...Array(5)].map((_, i) => (
+            <Star key={i} className="w-3.5 h-3.5 fill-amber-400" />
+          ))}
+          <span className="text-[11px] font-semibold text-slate-500 ml-1.5">5.0</span>
+        </div>
+        <h3 className="font-extrabold text-[18px] text-[#0A1628] leading-tight" data-testid={`text-product-name-${item.slug}`}>
+          {item.name}
+        </h3>
+        <p className="text-[13px] font-bold text-[hsl(221,83%,53%)] mt-0.5">{item.dose}</p>
+        <p className="text-[13px] text-slate-600 mt-2 leading-relaxed">{item.blurb}</p>
+
+        <div className="flex items-center justify-between mt-5 pt-5 border-t border-slate-100">
+          <div>
+            <span className="text-[11px] text-slate-500 font-semibold uppercase tracking-wider">From</span>
+            <div className="text-[22px] font-extrabold text-[#0A1628]" data-testid={`text-product-price-${item.slug}`}>
+              ${item.price}
+            </div>
+          </div>
+          {isSoldOut ? (
+            <span className="px-5 py-2.5 rounded-lg bg-slate-100 text-slate-500 text-[13px] font-bold cursor-not-allowed" data-testid={`button-soldout-${item.slug}`}>
+              Sold Out
+            </span>
+          ) : (
+            <span className="px-5 py-2.5 rounded-lg bg-[hsl(221,83%,53%)] text-white text-[13px] font-bold group-hover:bg-[hsl(221,83%,47%)] transition-colors" data-testid={`link-buy-${item.slug}`}>
+              Buy →
+            </span>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+
+  if (isSoldOut) {
+    return <div>{CardInner}</div>;
+  }
+  return <Link href={item.href}>{CardInner}</Link>;
+}
 
 export default function Shop() {
-  const [category, setCategory] = useState("All");
-  const [sort, setSort] = useState("featured");
-  const [query, setQuery] = useState("");
-
-  const filtered = useMemo(() => {
-    let list = PRODUCTS.filter((p) => category === "All" || p.category === category);
-    if (query) {
-      const q = query.toLowerCase();
-      list = list.filter((p) => p.name.toLowerCase().includes(q) || p.dose.toLowerCase().includes(q));
-    }
-    if (sort === "price-low") list = [...list].sort((a, b) => a.price - b.price);
-    if (sort === "price-high") list = [...list].sort((a, b) => b.price - a.price);
-    if (sort === "name") list = [...list].sort((a, b) => a.name.localeCompare(b.name));
-    return list;
-  }, [category, sort, query]);
+  const inStockCount = ITEMS.filter((i) => i.inStock).length;
 
   return (
     <PageShell>
@@ -33,74 +134,34 @@ export default function Shop() {
           </div>
           <h1 className="text-[40px] md:text-[52px] font-extrabold text-[#0A1628] tracking-tight">Shop Peptides</h1>
           <p className="mt-3 text-[15px] text-slate-700 max-w-2xl">
-            Browse our complete catalog of research peptides. Every batch independently verified for 99%+ purity. For in vitro research use only.
+            A curated launch lineup of high-purity research peptides. Every batch independently verified for ≥99% purity. For in vitro research use only.
           </p>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 py-12">
-        {/* Filters */}
-        <div className="flex flex-col lg:flex-row gap-6 mb-10">
-          <div className="lg:w-64 flex-shrink-0">
-            <h3 className="text-[12px] font-bold uppercase tracking-wider text-slate-900 mb-4">Categories</h3>
-            <div className="flex flex-wrap lg:flex-col gap-2">
-              {CATEGORIES.map((c) => (
-                <button
-                  key={c}
-                  onClick={() => setCategory(c)}
-                  className={`text-left text-[13px] font-semibold px-3 py-2 rounded-md transition-colors ${
-                    category === c
-                      ? "bg-[hsl(221,83%,53%)] text-white"
-                      : "text-slate-700 hover:bg-slate-100"
-                  }`}
-                  data-testid={`button-category-${c.toLowerCase()}`}
-                >
-                  {c}
-                </button>
-              ))}
-            </div>
-          </div>
+      <div className="max-w-7xl mx-auto px-6 py-14">
+        <div className="flex items-baseline justify-between mb-8">
+          <h2 className="text-[14px] font-bold tracking-[0.18em] uppercase text-slate-500" data-testid="text-launch-lineup">
+            Launch Lineup · {ITEMS.length} Products
+          </h2>
+          <span className="text-[12px] text-slate-500" data-testid="text-stock-count">
+            <span className="font-bold text-emerald-600">{inStockCount}</span> in stock
+          </span>
+        </div>
 
-          <div className="flex-1">
-            <div className="flex flex-col sm:flex-row gap-3 mb-6">
-              <div className="relative flex-1">
-                <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
-                <input
-                  type="search"
-                  value={query}
-                  onChange={(e) => setQuery(e.target.value)}
-                  placeholder="Search peptides…"
-                  className="w-full pl-10 pr-3 py-2.5 text-[14px] border border-slate-300 rounded-md focus:outline-none focus:border-[hsl(221,83%,53%)]"
-                  data-testid="input-search"
-                />
-              </div>
-              <select
-                value={sort}
-                onChange={(e) => setSort(e.target.value)}
-                className="px-3 py-2.5 text-[14px] border border-slate-300 rounded-md bg-white focus:outline-none focus:border-[hsl(221,83%,53%)] font-semibold text-slate-700"
-                data-testid="select-sort"
-              >
-                <option value="featured">Sort: Featured</option>
-                <option value="price-low">Price: Low to High</option>
-                <option value="price-high">Price: High to Low</option>
-                <option value="name">Name (A–Z)</option>
-              </select>
-            </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {ITEMS.map((item) => (
+            <ShopCard key={item.slug} item={item} />
+          ))}
+        </div>
 
-            <p className="text-[13px] text-slate-500 mb-5" data-testid="text-result-count">
-              Showing <span className="font-bold text-slate-900">{filtered.length}</span> of {PRODUCTS.length} products
-            </p>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-              {filtered.map((p) => <ProductCard key={p.slug} product={p} />)}
-            </div>
-
-            {filtered.length === 0 && (
-              <div className="text-center py-20 text-slate-500" data-testid="text-empty">
-                No products match your filters.
-              </div>
-            )}
-          </div>
+        {/* More coming soon */}
+        <div className="mt-16 rounded-2xl border border-dashed border-slate-300 bg-slate-50 p-10 text-center" data-testid="block-more-coming">
+          <p className="text-[12px] font-bold tracking-[0.18em] uppercase text-[hsl(221,83%,53%)]">Coming Soon</p>
+          <h3 className="text-[24px] font-extrabold text-[#0A1628] mt-2">More peptides on the way</h3>
+          <p className="text-[14px] text-slate-600 mt-2 max-w-xl mx-auto">
+            We're expanding the catalog as new batches clear third-party verification. Check back soon.
+          </p>
         </div>
       </div>
     </PageShell>

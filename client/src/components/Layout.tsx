@@ -10,10 +10,12 @@ import {
 function AnnouncementBar() {
   return (
     <div className="w-full text-white text-[12px] font-medium" data-testid="announcement-bar">
-      <div className="bg-[#0A1628] py-2 text-center tracking-wide">
-        <span className="opacity-90">PREMIUM RESEARCH PEPTIDES</span>
-        <span className="mx-3 opacity-40">•</span>
-        <span className="opacity-90">PURITY VERIFIED, LABORATORY FOCUSED</span>
+      <div className="bg-[#0A1628] py-2 text-center tracking-[0.18em]" data-testid="text-tagline">
+        <span className="opacity-95 font-semibold">BETTER CHEMISTRY.</span>
+        <span className="mx-2 opacity-40">•</span>
+        <span className="opacity-95 font-semibold">BETTER DAYS.</span>
+        <span className="mx-2 opacity-40">•</span>
+        <span className="opacity-95 font-semibold text-[hsl(221,83%,68%)]">MORE LIFE.</span>
       </div>
       <div className="bg-[#111827] py-2 text-center text-[11px]">
         <span className="opacity-90">👉 JOIN OUR RESEARCHER COMMUNITY — Fast Answers · Order Help · Shipping Updates</span>
@@ -50,8 +52,8 @@ export function NavBar() {
       <AnnouncementBar />
       <TopUtility />
       <div className="max-w-7xl mx-auto px-6 h-[72px] flex items-center justify-between">
-        <Link href="/" data-testid="link-home-logo">
-          <Logo />
+        <Link href="/" data-testid="link-home-logo" className="flex items-center">
+          <Logo variant="horizontal" height={44} />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-8 text-[14px] font-semibold text-slate-800">
@@ -95,7 +97,7 @@ export function Footer() {
     <footer className="bg-[#F8FAFC] border-t border-slate-200 mt-24" data-testid="footer">
       <div className="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-4 gap-10">
         <div>
-          <Logo />
+          <Logo variant="horizontal" height={42} />
           <p className="text-[13px] text-slate-600 mt-4 leading-relaxed">
             High purity research peptides. Tested. Trusted. Manufactured in
             U.S.-based laboratory facilities and independently verified for purity

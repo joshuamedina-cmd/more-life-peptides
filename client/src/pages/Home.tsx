@@ -1,4 +1,9 @@
 import { Link } from "wouter";
+import specReta from "@/assets/spec_reta_30mg.png";
+import specWolverine from "@/assets/spec_wolverine.png";
+import specGhkcu from "@/assets/spec_ghkcu.png";
+import twoVials from "@/assets/two_vials.png";
+import heroThreeVials from "@/assets/hero_three_vials.png";
 import { useState } from "react";
 import { PageShell } from "@/components/Layout";
 import { ProductCard } from "@/components/ProductCard";
@@ -48,20 +53,14 @@ function Hero() {
           </div>
         </div>
 
-        {/* Vial cluster */}
-        <div className="relative flex items-center justify-center">
-          <div className="absolute inset-0 bg-gradient-radial from-[hsl(221,83%,80%)]/40 to-transparent rounded-full blur-3xl" />
-          <div className="relative grid grid-cols-3 gap-3 transform rotate-[-4deg]">
-            <div className="translate-y-8"><VialIcon label="MOTS-C" size={130} /></div>
-            <div className="-translate-y-2"><VialIcon label="GLP-3" size={150} /></div>
-            <div className="translate-y-8"><VialIcon label="GHK-Cu" size={130} /></div>
-            <div className="col-span-3 flex justify-center -mt-4">
-              <div className="flex gap-3">
-                <VialIcon label="TESA" size={120} />
-                <VialIcon label="GLOW" size={120} />
-              </div>
-            </div>
-          </div>
+        {/* Hero product trio */}
+        <div className="relative flex items-center justify-center" data-testid="hero-three-vials">
+          <div className="absolute inset-0 bg-gradient-radial from-[hsl(221,83%,80%)]/30 to-transparent rounded-full blur-3xl" />
+          <img
+            src={heroThreeVials}
+            alt="More Life Peptides RETA, Wolverine Blend, and GHK-Cu vials"
+            className="relative w-full max-w-[640px] h-auto drop-shadow-xl mix-blend-multiply"
+          />
         </div>
       </div>
     </section>
@@ -112,21 +111,127 @@ function ValueProps() {
   );
 }
 
-function ProductGrid({ title, subtitle, products }: { title: string; subtitle: string; products: typeof BESTSELLERS }) {
+type LaunchProduct = {
+  slug: string;
+  name: string;
+  dose: string;
+  price: number;
+  image: string;
+  inStock: boolean;
+  href: string;
+  blurb: string;
+};
+
+const LAUNCH_PRODUCTS: LaunchProduct[] = [
+  {
+    slug: "reta-30mg",
+    name: "RETATRUTIDE",
+    dose: "30 MG",
+    price: 299,
+    image: specReta,
+    inStock: true,
+    href: "/buy/reta",
+    blurb: "Triple-receptor research peptide · Lyophilized sodium powder · ≥99% HPLC",
+  },
+  {
+    slug: "wolverine-blend",
+    name: "WOLVERINE BLEND",
+    dose: "10 + 10 MG",
+    price: 159,
+    image: specWolverine,
+    inStock: false,
+    href: "/shop",
+    blurb: "BPC-157 + TB-500 recovery blend · Lyophilized · Third-party verified",
+  },
+  {
+    slug: "ghk-cu-50mg",
+    name: "GHK-Cu",
+    dose: "50 MG",
+    price: 119,
+    image: specGhkcu,
+    inStock: true,
+    href: "/shop",
+    blurb: "Copper tripeptide · Light-sensitive blue powder · ≥99% HPLC",
+  },
+];
+
+function LaunchLineupCard({ item }: { item: LaunchProduct }) {
+  const isSoldOut = !item.inStock;
+  const inner = (
+    <div
+      className={`group relative bg-white border rounded-2xl overflow-hidden transition-all duration-200 ${
+        isSoldOut
+          ? "border-slate-200 opacity-95"
+          : "border-slate-200 hover:border-[hsl(221,83%,53%)] hover:shadow-xl cursor-pointer"
+      }`}
+      data-testid={`card-launch-${item.slug}`}
+    >
+      {isSoldOut && (
+        <div className="absolute top-4 left-4 z-10">
+          <span className="inline-block bg-slate-900 text-white text-[11px] font-bold tracking-[0.18em] uppercase px-3 py-1.5 rounded-md shadow-md" data-testid={`badge-soldout-${item.slug}`}>
+            Sold Out
+          </span>
+        </div>
+      )}
+      <div className={`bg-gradient-to-br from-[#F0F5FA] to-[#E1ECF7] aspect-[4/3] flex items-center justify-center p-4 overflow-hidden ${isSoldOut ? "grayscale" : ""}`}>
+        <img
+          src={item.image}
+          alt={`More Life Peptides ${item.name} ${item.dose}`}
+          className={`max-h-full max-w-full object-contain transition-transform duration-300 ${isSoldOut ? "" : "group-hover:scale-105"}`}
+          loading="lazy"
+          data-testid={`img-launch-${item.slug}`}
+        />
+      </div>
+      <div className="p-6 border-t border-slate-100">
+        <div className="flex items-center gap-1 text-amber-400 mb-2">
+          {[...Array(5)].map((_, i) => (
+            <Star key={i} className="w-3.5 h-3.5 fill-amber-400" />
+          ))}
+          <span className="text-[11px] font-semibold text-slate-500 ml-1.5">5.0</span>
+        </div>
+        <h3 className="font-extrabold text-[18px] text-[#0A1628] leading-tight" data-testid={`text-launch-name-${item.slug}`}>{item.name}</h3>
+        <p className="text-[13px] font-bold text-[hsl(221,83%,53%)] mt-0.5">{item.dose}</p>
+        <p className="text-[13px] text-slate-600 mt-2 leading-relaxed">{item.blurb}</p>
+        <div className="flex items-center justify-between mt-5 pt-5 border-t border-slate-100">
+          <div>
+            <span className="text-[11px] text-slate-500 font-semibold uppercase tracking-wider">From</span>
+            <div className="text-[22px] font-extrabold text-[#0A1628]" data-testid={`text-launch-price-${item.slug}`}>${item.price}</div>
+          </div>
+          {isSoldOut ? (
+            <span className="px-5 py-2.5 rounded-lg bg-slate-100 text-slate-500 text-[13px] font-bold cursor-not-allowed" data-testid={`button-soldout-${item.slug}`}>
+              Sold Out
+            </span>
+          ) : (
+            <span className="px-5 py-2.5 rounded-lg bg-[hsl(221,83%,53%)] text-white text-[13px] font-bold group-hover:bg-[hsl(221,83%,47%)] transition-colors" data-testid={`link-buy-${item.slug}`}>
+              Buy →
+            </span>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+  if (isSoldOut) return <div>{inner}</div>;
+  return <Link href={item.href}>{inner}</Link>;
+}
+
+function LaunchLineup() {
   return (
-    <section className="py-20 bg-[#F8FAFC]">
+    <section className="py-20 bg-[#F8FAFC]" data-testid="section-launch-lineup">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-12">
-          <span className="text-[12px] font-bold tracking-[0.2em] uppercase text-[hsl(221,83%,53%)]">{subtitle}</span>
-          <h2 className="text-[36px] md:text-[44px] font-extrabold text-[#0A1628] mt-2 tracking-tight">{title}</h2>
+          <span className="text-[12px] font-bold tracking-[0.2em] uppercase text-[hsl(221,83%,53%)]">Launch Lineup</span>
+          <h2 className="text-[36px] md:text-[44px] font-extrabold text-[#0A1628] mt-2 tracking-tight">Our First Three Peptides</h2>
+          <p className="text-[15px] text-slate-600 mt-3 max-w-2xl mx-auto">
+            A curated launch lineup. Every batch independently verified for ≥99% purity. More compounds on the way.
+          </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {products.map((p) => <ProductCard key={p.slug} product={p} />)}
+          {LAUNCH_PRODUCTS.map((item) => <LaunchLineupCard key={item.slug} item={item} />)}
         </div>
         <div className="mt-12 text-center">
           <Link href="/shop">
             <button className="border-2 border-[hsl(221,83%,53%)] text-[hsl(221,83%,53%)] font-bold text-[14px] px-8 py-3.5 rounded-full hover:bg-[hsl(221,83%,53%)] hover:text-white transition-all inline-flex items-center gap-2" data-testid="button-shop-all">
-              View All Peptides <ArrowRight className="w-4 h-4" />
+              View Shop Page <ArrowRight className="w-4 h-4" />
             </button>
           </Link>
         </div>
@@ -308,14 +413,80 @@ function FAQ() {
   );
 }
 
+function FeaturedSpecSheets() {
+  return (
+    <section className="py-24 bg-white border-y border-slate-100" data-testid="section-featured-specs">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="text-center mb-14">
+          <p className="text-[12px] font-bold tracking-[0.2em] text-[hsl(221,83%,53%)] uppercase">Featured Products</p>
+          <h2 className="text-[36px] md:text-[44px] font-extrabold text-[#0A1628] mt-2 tracking-tight">
+            Spec Sheets & Lab-Verified Lots
+          </h2>
+          <p className="text-[15px] text-slate-600 mt-4 max-w-2xl mx-auto">
+            Every batch is third-party tested by HPLC. Browse our latest research-grade releases.
+          </p>
+        </div>
+
+        <div className="mb-12 rounded-2xl overflow-hidden border border-slate-200 bg-gradient-to-br from-[#F8FAFC] to-white shadow-sm" data-testid="img-two-vials">
+          <img src={twoVials} alt="More Life Peptides RETA and Wolverine Blend vials side by side" className="w-full h-auto" loading="lazy" />
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="rounded-2xl overflow-hidden border border-slate-200 bg-white shadow-sm hover:shadow-md transition-shadow" data-testid="card-spec-reta">
+            <img src={specReta} alt="More Life Peptides RETA 30MG spec sheet" className="w-full h-auto block" loading="lazy" />
+            <div className="p-6 flex items-center justify-between">
+              <div>
+                <p className="text-[12px] font-bold tracking-[0.18em] text-[hsl(221,83%,53%)] uppercase">Featured</p>
+                <h3 className="text-[20px] font-extrabold text-[#0A1628] mt-1">RETA 30 MG</h3>
+                <p className="text-[13px] text-slate-600 mt-1">Lyophilized sodium powder · ≥99% HPLC</p>
+              </div>
+              <Link href="/buy/reta" className="px-4 py-2 rounded-lg bg-[hsl(221,83%,53%)] text-white text-[13px] font-bold hover:bg-[hsl(221,83%,47%)] transition-colors" data-testid="link-shop-reta">
+                Buy →
+              </Link>
+            </div>
+          </div>
+
+          <div className="rounded-2xl overflow-hidden border border-slate-200 bg-white shadow-sm hover:shadow-md transition-shadow" data-testid="card-spec-wolverine">
+            <img src={specWolverine} alt="More Life Peptides Wolverine Blend spec sheet" className="w-full h-auto block" loading="lazy" />
+            <div className="p-6 flex items-center justify-between">
+              <div>
+                <p className="text-[12px] font-bold tracking-[0.18em] text-[hsl(221,83%,53%)] uppercase">Featured Blend</p>
+                <h3 className="text-[20px] font-extrabold text-[#0A1628] mt-1">Wolverine Blend</h3>
+                <p className="text-[13px] text-slate-600 mt-1">BPC-157 10mg + TB-500 10mg · ≥99% HPLC</p>
+              </div>
+              <Link href="/shop" className="px-4 py-2 rounded-lg bg-[hsl(221,83%,53%)] text-white text-[13px] font-bold hover:bg-[hsl(221,83%,47%)] transition-colors" data-testid="link-shop-wolverine">
+                Shop →
+              </Link>
+            </div>
+          </div>
+
+          <div className="rounded-2xl overflow-hidden border border-slate-200 bg-white shadow-sm hover:shadow-md transition-shadow" data-testid="card-spec-ghkcu">
+            <img src={specGhkcu} alt="More Life Peptides GHK-Cu 50MG spec sheet" className="w-full h-auto block" loading="lazy" />
+            <div className="p-6 flex items-center justify-between">
+              <div>
+                <p className="text-[12px] font-bold tracking-[0.18em] text-[hsl(221,83%,53%)] uppercase">Copper Peptide</p>
+                <h3 className="text-[20px] font-extrabold text-[#0A1628] mt-1">GHK-Cu 50 MG</h3>
+                <p className="text-[13px] text-slate-600 mt-1">Copper tripeptide-1 · ≥99% HPLC</p>
+              </div>
+              <Link href="/shop" className="px-4 py-2 rounded-lg bg-[hsl(221,83%,53%)] text-white text-[13px] font-bold hover:bg-[hsl(221,83%,47%)] transition-colors" data-testid="link-shop-ghkcu">
+                Shop →
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function Home() {
   return (
     <PageShell>
       <Hero />
       <TrustBanner />
       <ValueProps />
-      <ProductGrid title="Our Best Sellers" subtitle="Most Trusted" products={BESTSELLERS} />
-      <ProductGrid title="New Arrivals" subtitle="Just Launched" products={NEW_ARRIVALS} />
+      <LaunchLineup />
+      <FeaturedSpecSheets />
       <ManufacturingSection />
       <QualityVerification />
       <WhyChooseUs />
