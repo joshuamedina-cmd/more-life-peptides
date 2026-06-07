@@ -77,12 +77,12 @@ export default function BuyReta() {
                 <div className="flex items-baseline justify-between mb-1">
                   <span className="text-[13px] uppercase font-bold tracking-[0.14em] text-[hsl(221,83%,53%)]">You Get (RETA Vial)</span>
                   <span className="text-[16px] font-black text-[hsl(221,83%,53%)]">
-                    <span className="line-through text-slate-400 font-bold mr-2">$299</span>FREE
+                    <span className="line-through text-slate-400 font-bold mr-2">$150</span>FREE
                   </span>
                 </div>
                 <div className="mt-3 pt-3 border-t border-slate-200 flex items-baseline justify-between">
                   <span className="text-[12px] font-bold text-slate-600 uppercase tracking-wider">Total Value</span>
-                  <span className="text-[16px] font-extrabold text-emerald-600">Save $299</span>
+                  <span className="text-[16px] font-extrabold text-emerald-600">Save $150</span>
                 </div>
               </div>
 
@@ -94,7 +94,7 @@ export default function BuyReta() {
                 className="mt-6 inline-flex items-center justify-center gap-2 w-full px-6 py-4 rounded-xl bg-[hsl(221,83%,53%)] hover:bg-[hsl(221,83%,47%)] text-white text-[16px] font-extrabold tracking-wide transition-colors shadow-lg shadow-[hsl(221,83%,53%)]/25"
                 data-testid="link-buy-now"
               >
-                Buy Water + Claim Free RETA  →
+Ready to Buy  →
               </a>
 
               <p className="text-[11px] text-slate-500 mt-3 text-center" data-testid="text-cta-microcopy">
@@ -194,7 +194,7 @@ export default function BuyReta() {
                 </p>
                 <div className="mt-4 flex items-baseline gap-3">
                   <span className="text-[24px] font-black text-[hsl(221,83%,53%)]">FREE</span>
-                  <span className="text-[14px] line-through text-slate-400 font-semibold">$299.00</span>
+                  <span className="text-[14px] line-through text-slate-400 font-semibold">$150.00</span>
                 </div>
               </div>
             </div>

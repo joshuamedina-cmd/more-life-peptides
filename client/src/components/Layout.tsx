@@ -58,7 +58,7 @@ export function NavBar() {
 
         <nav className="hidden lg:flex items-center gap-8 text-[14px] font-semibold text-slate-800">
           <Link href="/" className="hover:text-[hsl(221,83%,53%)] transition-colors" data-testid="link-nav-home">Home</Link>
-          <a href="https://more-life-peptides.com/products/Bacteriostatic-Water-comes-with-FREE-30mg-USP-p839964180" target="_blank" rel="noopener noreferrer" className="hover:text-[hsl(221,83%,53%)] transition-colors" data-testid="link-nav-shop">Shop Peptides</a>
+          <Link href="/buy/reta" className="hover:text-[hsl(221,83%,53%)] transition-colors" data-testid="link-nav-shop">Shop Peptides</Link>
           <Link href="/about" className="hover:text-[hsl(221,83%,53%)] transition-colors" data-testid="link-nav-about">About Us</Link>
           <Link href="/lab-referral" className="hover:text-[hsl(221,83%,53%)] transition-colors" data-testid="link-nav-lab">Lab Referral Program</Link>
           <button className="flex items-center gap-1 hover:text-[hsl(221,83%,53%)] transition-colors" data-testid="button-nav-more">
@@ -83,7 +83,7 @@ export function NavBar() {
       {open && (
         <div className="lg:hidden border-t border-slate-200 bg-white px-6 py-4 space-y-3 text-sm font-semibold">
           <Link href="/" className="block py-1" onClick={() => setOpen(false)}>Home</Link>
-          <a href="https://more-life-peptides.com/products/Bacteriostatic-Water-comes-with-FREE-30mg-USP-p839964180" target="_blank" rel="noopener noreferrer" className="block py-1" onClick={() => setOpen(false)}>Shop Peptides</a>
+          <Link href="/buy/reta" className="block py-1" onClick={() => setOpen(false)}>Shop Peptides</Link>
           <Link href="/about" className="block py-1" onClick={() => setOpen(false)}>About Us</Link>
           <Link href="/lab-referral" className="block py-1" onClick={() => setOpen(false)}>Lab Referral Program</Link>
         </div>
@@ -126,7 +126,7 @@ export function Footer() {
           <h4 className="text-[13px] font-bold text-slate-900 mb-4 tracking-wide uppercase">Quick Links</h4>
           <ul className="space-y-2.5 text-[13px] text-slate-600">
             <li><Link href="/lab-referral" className="hover:text-[hsl(221,83%,53%)]">Lab Referral Program</Link></li>
-            <li><a href="https://more-life-peptides.com/products/Bacteriostatic-Water-comes-with-FREE-30mg-USP-p839964180" target="_blank" rel="noopener noreferrer" className="hover:text-[hsl(221,83%,53%)]">Shop Peptides</a></li>
+            <li><Link href="/buy/reta" className="hover:text-[hsl(221,83%,53%)]">Shop Peptides</Link></li>
             <li><a href="#" className="hover:text-[hsl(221,83%,53%)]">Track Order</a></li>
             <li><a href="#" className="hover:text-[hsl(221,83%,53%)]">My Account</a></li>
             <li><a href="#" className="hover:text-[hsl(221,83%,53%)]">COAs</a></li>

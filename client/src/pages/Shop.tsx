@@ -21,10 +21,10 @@ const ITEMS: ShopItem[] = [
     slug: "reta-30mg",
     name: "RETATRUTIDE",
     dose: "30 MG",
-    price: 299,
+    price: 150,
     image: specReta,
     inStock: true,
-    href: "https://more-life-peptides.com/products/Bacteriostatic-Water-comes-with-FREE-30mg-USP-p839964180",
+    href: "/buy/reta",
     blurb: "Triple-receptor research peptide · Lyophilized sodium powder · ≥99% HPLC",
   },
   {
@@ -44,7 +44,7 @@ const ITEMS: ShopItem[] = [
     price: 119,
     image: specGhkcu,
     inStock: true,
-    href: "https://more-life-peptides.com/products/Bacteriostatic-Water-comes-with-FREE-30mg-USP-p839964180",
+    href: "/buy/reta",
     blurb: "Copper tripeptide · Light-sensitive blue powder · ≥99% HPLC",
   },
 ];
