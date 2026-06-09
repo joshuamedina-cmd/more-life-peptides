@@ -39,7 +39,7 @@ export default function BuyGhkcu() {
           <div className="flex items-center gap-3 mb-6">
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[hsl(221,83%,53%)]/10 text-[hsl(221,83%,53%)] text-[11px] font-extrabold tracking-[0.18em] uppercase" data-testid="badge-launch-offer">
               <Star className="w-3 h-3" />
-              Launch Offer
+              Bundle Deal
             </span>
             <span className="text-[12px] font-semibold text-slate-600">Limited Time · While Supplies Last</span>
           </div>
@@ -49,7 +49,7 @@ export default function BuyGhkcu() {
             <div className="lg:col-span-7 rounded-2xl overflow-hidden border border-slate-200 bg-white shadow-md" data-testid="img-water-ghkcu-combo">
               <img
                 src={waterGhkcuCombo}
-                alt="Buy bacteriostatic water, get GHK-Cu 50MG free"
+                alt="GHK-Cu bundle deal with 10 mL bacteriostatic water"
                 className="w-full h-auto block"
               />
             </div>
@@ -57,32 +57,30 @@ export default function BuyGhkcu() {
             {/* Offer panel */}
             <div className="lg:col-span-5">
               <h1 className="text-[42px] md:text-[52px] font-black leading-[1.05] text-[#0A1628] tracking-tight" data-testid="text-offer-headline">
-                Buy Water.
+                GHK-Cu
                 <br />
-                <span className="text-[hsl(221,83%,53%)]">Get GHK-Cu FREE.</span>
+                <span className="text-[hsl(221,83%,53%)]">Bundle Deal With Water.</span>
               </h1>
 
               <p className="text-[16px] text-slate-700 leading-relaxed mt-5" data-testid="text-offer-subhead">
-                Order a 10 mL vial of our USP-grade <strong>Sterile Water with 0.9% Benzyl Alcohol</strong> and we'll send you a vial of
-                <strong> GHK-Cu 50 MG (Copper Tripeptide-1)</strong> on the house. One free research-grade peptide vial,
-                bundled with every water order — shipped together, cold-chain protected.
+Order our <strong>10 mL USP-grade Sterile Water with 0.9% Benzyl Alcohol</strong> and it ships bundled with a vial of
+                <strong> GHK-Cu 50 MG (Copper Tripeptide-1)</strong>. One simple bundle deal — two research-grade products
+                in one cold-chain package.
               </p>
 
               {/* Price block */}
               <div className="mt-7 rounded-xl border border-slate-200 bg-white p-5 shadow-sm" data-testid="block-pricing">
                 <div className="flex items-baseline justify-between mb-1">
-                  <span className="text-[13px] uppercase font-bold tracking-[0.14em] text-slate-500">You Pay (Water)</span>
+                  <span className="text-[13px] uppercase font-bold tracking-[0.14em] text-slate-500">Bundle Price</span>
                   <span className="text-[28px] font-black text-[#0A1628]">$65</span>
                 </div>
                 <div className="flex items-baseline justify-between mb-1">
-                  <span className="text-[13px] uppercase font-bold tracking-[0.14em] text-[hsl(221,83%,53%)]">You Get (GHK-Cu Vial)</span>
-                  <span className="text-[16px] font-black text-[hsl(221,83%,53%)]">
-                    <span className="line-through text-slate-400 font-bold mr-2">$65</span>FREE
-                  </span>
+                  <span className="text-[13px] uppercase font-bold tracking-[0.14em] text-[hsl(221,83%,53%)]">Includes</span>
+                  <span className="text-[14px] font-bold text-[hsl(221,83%,53%)]">10 mL Water + GHK-Cu 50 MG</span>
                 </div>
                 <div className="mt-3 pt-3 border-t border-slate-200 flex items-baseline justify-between">
-                  <span className="text-[12px] font-bold text-slate-600 uppercase tracking-wider">Total Value</span>
-                  <span className="text-[16px] font-extrabold text-emerald-600">Save $65</span>
+                  <span className="text-[12px] font-bold text-slate-600 uppercase tracking-wider">One Bundle. Two Products.</span>
+                  <span className="text-[16px] font-extrabold text-emerald-600">Ships Together</span>
                 </div>
               </div>
 
@@ -94,7 +92,7 @@ export default function BuyGhkcu() {
                 className="mt-6 inline-flex items-center justify-center gap-2 w-full px-6 py-4 rounded-xl bg-[hsl(221,83%,53%)] hover:bg-[hsl(221,83%,47%)] text-white text-[16px] font-extrabold tracking-wide transition-colors shadow-lg shadow-[hsl(221,83%,53%)]/25"
                 data-testid="link-buy-now"
               >
-Ready to Buy  →
+Get the Bundle Deal  →
               </a>
 
               <p className="text-[11px] text-slate-500 mt-3 text-center" data-testid="text-cta-microcopy">
@@ -123,8 +121,7 @@ Ready to Buy  →
                 <p className="text-[15px] text-slate-700 leading-relaxed mt-2">
                   While our complete site-wide checkout is being completed, we wanted our earliest researchers to still get their hands on
                   More Life Peptides products — so here's our solution: <strong>order a vial of our USP-grade bacteriostatic water</strong>
-                  through our fully-secured partner checkout, and we'll <strong>ship a free vial of RETA 30 MG</strong> alongside it,
-                  bundled in the same cold-chain package. No catch, no upcharge — just a thank-you for being early.
+                  through our fully-secured partner checkout as a <strong>bundle deal</strong>: <strong>10 mL USP-grade sterile water + GHK-Cu 50 MG</strong> ship together in the same cold-chain package. One price, two products, no catch.
                 </p>
               </div>
             </div>
@@ -134,7 +131,7 @@ Ready to Buy  →
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               { n: "01", t: "Order the Water", d: "Click the button above and check out securely through our partner cart for the 10 mL USP-grade sterile water." },
-              { n: "02", t: "We Bundle the GHK-Cu", d: "Every water order auto-ships with a free vial of GHK-Cu 50 MG — lyophilized, lab-tested, no extra steps." },
+              { n: "02", t: "GHK-Cu Bundled In", d: "Every water order auto-ships with a vial of GHK-Cu 50 MG — lyophilized, lab-tested, no extra steps." },
               { n: "03", t: "Track & Receive", d: "Cold-chain shipped together. You get your COA, tracking, and both products in one box." },
             ].map((step) => (
               <div key={step.n} className="rounded-xl border border-slate-200 bg-white p-6" data-testid={`card-step-${step.n}`}>
@@ -179,22 +176,21 @@ Ready to Buy  →
             <div className="rounded-2xl border-2 border-[hsl(221,83%,53%)] bg-white overflow-hidden shadow-md relative" data-testid="card-ghkcu-detail">
               <div className="absolute top-4 right-4 z-10 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[hsl(221,83%,53%)] text-white text-[11px] font-extrabold tracking-[0.14em] uppercase shadow-md">
                 <Star className="w-3 h-3" />
-                FREE
+                Bundled
               </div>
               <div className="bg-gradient-to-br from-[#F8FAFC] to-white p-6 flex items-center justify-center min-h-[360px]">
                 <img src={specGhkcu} alt="GHK-Cu 50 MG spec sheet" className="max-h-[340px] w-auto" />
               </div>
               <div className="p-6 border-t border-slate-200">
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="text-[11px] font-extrabold tracking-[0.18em] text-[hsl(221,83%,53%)] uppercase">Included Free</span>
+                  <span className="text-[11px] font-extrabold tracking-[0.18em] text-[hsl(221,83%,53%)] uppercase">Included In Bundle</span>
                 </div>
                 <h3 className="text-[22px] font-extrabold text-[#0A1628]">GHK-Cu 50 MG · Copper Tripeptide-1</h3>
                 <p className="text-[14px] text-slate-600 mt-2">
                   Copper-binding tripeptide research compound. 50 mg light-sensitive blue powder, ≥99% HPLC.
                 </p>
                 <div className="mt-4 flex items-baseline gap-3">
-                  <span className="text-[24px] font-black text-[hsl(221,83%,53%)]">FREE</span>
-                  <span className="text-[14px] line-through text-slate-400 font-semibold">$65.00</span>
+                  <span className="text-[18px] font-extrabold text-[hsl(221,83%,53%)]">Ships with Water Bundle</span>
                 </div>
               </div>
             </div>
@@ -204,10 +200,10 @@ Ready to Buy  →
           <div className="mt-12 rounded-2xl bg-[#0A1628] p-8 md:p-10 text-center" data-testid="block-bottom-cta">
             <Star className="w-8 h-8 text-[hsl(221,83%,63%)] mx-auto mb-3" />
             <h3 className="text-[26px] md:text-[32px] font-extrabold text-white tracking-tight">
-              Ready to claim your free GHK-Cu?
+              Ready to grab the bundle?
             </h3>
             <p className="text-[15px] text-slate-300 mt-3 max-w-xl mx-auto">
-              Order the water through our partner cart and we'll bundle your GHK-Cu vial automatically. No promo code needed.
+              Order the 10 mL water through our partner cart and your GHK-Cu vial ships bundled with it automatically. No promo code needed.
             </p>
             <a
               href={PURCHASE_LINK}
@@ -216,7 +212,7 @@ Ready to Buy  →
               className="mt-6 inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-[hsl(221,83%,53%)] hover:bg-[hsl(221,83%,47%)] text-white text-[15px] font-extrabold tracking-wide transition-colors shadow-lg"
               data-testid="link-buy-now-bottom"
             >
-              Buy Water + Claim Free RETA  →
+Get the Bundle Deal  →
             </a>
             <p className="text-[11px] text-slate-400 mt-4">Research use only · Not for human consumption</p>
           </div>
