@@ -4,6 +4,7 @@ import specWolverine from "@/assets/spec_wolverine.png";
 import specGhkcu from "@/assets/spec_ghkcu.png";
 import twoVials from "@/assets/two_vials.png";
 import heroThreeVials from "@/assets/hero_three_vials.png";
+import labUhplc from "@/assets/lab_uhplc.jpg";
 import { useState } from "react";
 import { PageShell } from "@/components/Layout";
 import { ProductCard } from "@/components/ProductCard";
@@ -253,24 +254,17 @@ function ManufacturingSection() {
     <section className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
         <div className="space-y-5">
-          <div className="bg-gradient-to-br from-[#0A1628] to-[#1E3A5F] rounded-xl aspect-[4/3] relative overflow-hidden shadow-2xl">
-            <div className="absolute inset-0 grid grid-cols-3 gap-px p-4 opacity-30">
-              {[...Array(12)].map((_, i) => (
-                <div key={i} className="bg-gradient-to-br from-blue-300 to-blue-500 rounded-sm" />
-              ))}
-            </div>
-            <div className="absolute inset-0 flex items-center justify-center">
-              <Microscope className="w-32 h-32 text-white/80" />
-            </div>
-            <div className="absolute bottom-4 left-4 right-4 text-white/90">
-              <p className="text-[11px] font-bold uppercase tracking-widest opacity-70">U.S.-Based Facility</p>
-              <p className="text-[14px] font-semibold">Sterile lyophilization & batch QA</p>
-            </div>
-          </div>
-          <div className="bg-gradient-to-br from-[#E8F0F8] to-[#C8DAEC] rounded-xl aspect-[4/3] flex items-center justify-center shadow-lg">
-            <div className="flex gap-4">
-              <VialIcon label="BPC-157" size={150} />
-              <VialIcon label="TB-500" size={150} />
+          <div className="rounded-xl aspect-[4/3] relative overflow-hidden shadow-2xl bg-[#0A1628]">
+            <img
+              src={labUhplc}
+              alt="Analyst operating high-end UHPLC system for peptide purity testing"
+              className="absolute inset-0 w-full h-full object-cover"
+              data-testid="img-lab-uhplc"
+            />
+            <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+            <div className="absolute bottom-4 left-4 right-4 text-white">
+              <p className="text-[11px] font-bold uppercase tracking-widest text-white/70">U.S.-Based Facility</p>
+              <p className="text-[14px] font-semibold">UHPLC purity testing & batch QA</p>
             </div>
           </div>
         </div>
