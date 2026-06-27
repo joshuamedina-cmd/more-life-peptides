@@ -2,7 +2,8 @@ import { PageShell } from "@/components/Layout";
 import { Link } from "wouter";
 import waterRetaCombo from "@/assets/water_reta_combo.png";
 
-const PURCHASE_LINK = "https://more-life-peptides.com/products/30-ml-Bacteriostatic-Water-comes-with-FREE-30mg-USP-p839964180";
+// Direct-to-checkout: Ecwid prefilled-cart URL with gotoCheckout=true skips the product page and cart, drops customer straight into checkout with the fit kit (product id 839964180) pre-added.
+const PURCHASE_LINK = "https://more-life-peptides.com/products#!/~/cart/create=%7B%22gotoCheckout%22%3Atrue%2C%22products%22%3A%5B%7B%22id%22%3A839964180%2C%22quantity%22%3A1%7D%5D%7D";
 
 export default function BuyReta() {
   return (
