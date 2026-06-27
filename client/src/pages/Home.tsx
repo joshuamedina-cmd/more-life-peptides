@@ -11,7 +11,7 @@ import { ProductCard } from "@/components/ProductCard";
 import { VialIcon } from "@/components/VialIcon";
 import { BESTSELLERS, NEW_ARRIVALS } from "@/data/products";
 import {
-  Star, CheckCircle2, ShieldCheck, FlaskConical, Truck,
+  CheckCircle2, ShieldCheck, FlaskConical, Truck,
   Microscope, Award, HeartHandshake, FileCheck, ChevronDown, ArrowRight
 } from "lucide-react";
 
@@ -25,13 +25,6 @@ function Hero() {
 
       <div className="max-w-7xl mx-auto px-6 py-20 lg:py-28 grid lg:grid-cols-2 gap-12 items-center relative">
         <div>
-          <div className="flex items-center gap-1 mb-5">
-            {[...Array(5)].map((_, i) => (
-              <Star key={i} className="w-5 h-5 fill-amber-400 text-amber-400" />
-            ))}
-            <span className="ml-2 text-[12px] font-semibold text-slate-700 uppercase tracking-wider">5-Star Rated</span>
-          </div>
-
           <h1 className="text-[44px] md:text-[56px] lg:text-[64px] font-extrabold leading-[1.05] tracking-tight text-[#0A1628]">
             High Purity Peptides.<br />
             <span className="text-[hsl(221,83%,53%)]">Tested.</span> Trusted.
@@ -126,23 +119,13 @@ type LaunchProduct = {
 const LAUNCH_PRODUCTS: LaunchProduct[] = [
   {
     slug: "reta-30mg",
-    name: "RETATRUTIDE",
-    dose: "30 MG",
-    price: 150,
+    name: "FIT KIT",
+    dose: "",
+    price: 125,
     image: specReta,
     inStock: true,
     href: "/buy/reta",
-    blurb: "Triple-receptor research peptide · Lyophilized sodium powder · ≥99% HPLC",
-  },
-  {
-    slug: "wolverine-blend",
-    name: "WOLVERINE BLEND",
-    dose: "10 + 10 MG",
-    price: 159,
-    image: specWolverine,
-    inStock: false,
-    href: "/shop",
-    blurb: "BPC-157 + TB-500 recovery blend · Lyophilized · Third-party verified",
+    blurb: "Bacteriostatic Water + RETA 30 MG · Lyophilized sodium powder · ≥99% HPLC",
   },
   {
     slug: "ghk-cu-50mg",
@@ -153,6 +136,16 @@ const LAUNCH_PRODUCTS: LaunchProduct[] = [
     inStock: true,
     href: "/buy/ghkcu",
     blurb: "Copper tripeptide · Light-sensitive blue powder · ≥99% HPLC",
+  },
+  {
+    slug: "wolverine-blend",
+    name: "WOLVERINE BLEND",
+    dose: "10 + 10 MG",
+    price: 159,
+    image: specWolverine,
+    inStock: false,
+    href: "/shop",
+    blurb: "BPC-157 + TB-500 recovery blend · Lyophilized · Third-party verified",
   },
 ];
 
@@ -184,12 +177,6 @@ function LaunchLineupCard({ item }: { item: LaunchProduct }) {
         />
       </div>
       <div className="p-6 border-t border-slate-100">
-        <div className="flex items-center gap-1 text-amber-400 mb-2">
-          {[...Array(5)].map((_, i) => (
-            <Star key={i} className="w-3.5 h-3.5 fill-amber-400" />
-          ))}
-          <span className="text-[11px] font-semibold text-slate-500 ml-1.5">5.0</span>
-        </div>
         <h3 className="font-extrabold text-[18px] text-[#0A1628] leading-tight" data-testid={`text-launch-name-${item.slug}`}>{item.name}</h3>
         <p className="text-[13px] font-bold text-[hsl(221,83%,53%)] mt-0.5">{item.dose}</p>
         <p className="text-[13px] text-slate-600 mt-2 leading-relaxed">{item.blurb}</p>
@@ -314,11 +301,6 @@ function QualityVerification() {
         <div className="relative">
           <div className="bg-white rounded-xl p-8 shadow-2xl border border-slate-200">
             <div className="flex items-center justify-between mb-5">
-              <div className="flex items-center gap-2">
-                <FileCheck className="w-5 h-5 text-[hsl(221,83%,53%)]" />
-                <span className="text-[12px] font-bold uppercase tracking-wider text-slate-900">Certificate of Analysis</span>
-              </div>
-              <span className="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2 py-1 rounded">VERIFIED</span>
             </div>
             <div className="border-t border-slate-200 pt-5 space-y-3">
               {[

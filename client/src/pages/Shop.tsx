@@ -1,6 +1,5 @@
 import { Link } from "wouter";
 import { PageShell } from "@/components/Layout";
-import { Star } from "lucide-react";
 import specReta from "@/assets/spec_reta_30mg.png";
 import specWolverine from "@/assets/spec_wolverine.png";
 import specGhkcu from "@/assets/spec_ghkcu.png";
@@ -19,23 +18,13 @@ type ShopItem = {
 const ITEMS: ShopItem[] = [
   {
     slug: "reta-30mg",
-    name: "RETATRUTIDE",
-    dose: "30 MG",
-    price: 150,
+    name: "FIT KIT",
+    dose: "",
+    price: 125,
     image: specReta,
     inStock: true,
     href: "/buy/reta",
-    blurb: "Triple-receptor research peptide · Lyophilized sodium powder · ≥99% HPLC",
-  },
-  {
-    slug: "wolverine-blend",
-    name: "WOLVERINE BLEND",
-    dose: "10 + 10 MG",
-    price: 159,
-    image: specWolverine,
-    inStock: false,
-    href: "/shop",
-    blurb: "BPC-157 + TB-500 recovery blend · Lyophilized · Third-party verified",
+    blurb: "Bacteriostatic Water + RETA 30 MG · Lyophilized sodium powder · ≥99% HPLC",
   },
   {
     slug: "ghk-cu-50mg",
@@ -46,6 +35,16 @@ const ITEMS: ShopItem[] = [
     inStock: true,
     href: "/buy/ghkcu",
     blurb: "Copper tripeptide · Light-sensitive blue powder · ≥99% HPLC",
+  },
+  {
+    slug: "wolverine-blend",
+    name: "WOLVERINE BLEND",
+    dose: "10 + 10 MG",
+    price: 159,
+    image: specWolverine,
+    inStock: false,
+    href: "/shop",
+    blurb: "BPC-157 + TB-500 recovery blend · Lyophilized · Third-party verified",
   },
 ];
 
@@ -82,12 +81,6 @@ function ShopCard({ item }: { item: ShopItem }) {
 
       {/* Body */}
       <div className="p-6 border-t border-slate-100">
-        <div className="flex items-center gap-1 text-amber-400 mb-2">
-          {[...Array(5)].map((_, i) => (
-            <Star key={i} className="w-3.5 h-3.5 fill-amber-400" />
-          ))}
-          <span className="text-[11px] font-semibold text-slate-500 ml-1.5">5.0</span>
-        </div>
         <h3 className="font-extrabold text-[18px] text-[#0A1628] leading-tight" data-testid={`text-product-name-${item.slug}`}>
           {item.name}
         </h3>

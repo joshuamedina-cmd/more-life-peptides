@@ -2,7 +2,7 @@ import { Link } from "wouter";
 import { ReactNode, useState } from "react";
 import { Logo } from "./Logo";
 import {
-  Search, ShoppingCart, ChevronDown, Menu, X, Facebook, Twitter,
+  Search, ShoppingCart, ChevronDown, Menu, X,
   CheckCircle2, FileCheck, FlaskConical, ShieldCheck, Truck,
   CreditCard, Mail
 } from "lucide-react";
@@ -28,18 +28,8 @@ function TopUtility() {
   return (
     <div className="hidden md:block border-b border-slate-200 bg-white text-[11px] text-slate-600">
       <div className="max-w-7xl mx-auto px-6 h-9 flex items-center justify-between">
-        <div className="flex items-center gap-4">
-          <a href="#" className="hover:text-[hsl(221,83%,53%)]" data-testid="link-facebook">
-            <Facebook className="w-3.5 h-3.5" />
-          </a>
-          <a href="#" className="hover:text-[hsl(221,83%,53%)]" data-testid="link-twitter">
-            <Twitter className="w-3.5 h-3.5" />
-          </a>
-        </div>
-        <div className="flex items-center gap-5">
-          <a href="#" className="hover:text-[hsl(221,83%,53%)]" data-testid="link-track-order">Track Your Order</a>
-          <a href="#" className="hover:text-[hsl(221,83%,53%)]" data-testid="link-account">My Account</a>
-        </div>
+        <div />
+        <div />
       </div>
     </div>
   );
@@ -103,10 +93,7 @@ export function Footer() {
             U.S.-based laboratory facilities and independently verified for purity
             and content.
           </p>
-          <div className="flex items-center gap-3 mt-5">
-            <a href="#" className="text-slate-500 hover:text-[hsl(221,83%,53%)]"><Facebook className="w-4 h-4" /></a>
-            <a href="#" className="text-slate-500 hover:text-[hsl(221,83%,53%)]"><Twitter className="w-4 h-4" /></a>
-          </div>
+
         </div>
 
         <div>
@@ -127,10 +114,6 @@ export function Footer() {
           <ul className="space-y-2.5 text-[13px] text-slate-600">
             <li><Link href="/lab-referral" className="hover:text-[hsl(221,83%,53%)]">Lab Referral Program</Link></li>
             <li><Link href="/buy/reta" className="hover:text-[hsl(221,83%,53%)]">Shop Peptides</Link></li>
-            <li><a href="#" className="hover:text-[hsl(221,83%,53%)]">Track Order</a></li>
-            <li><a href="#" className="hover:text-[hsl(221,83%,53%)]">My Account</a></li>
-            <li><a href="#" className="hover:text-[hsl(221,83%,53%)]">COAs</a></li>
-            <li><a href="#" className="hover:text-[hsl(221,83%,53%)]">FAQ</a></li>
           </ul>
         </div>
 

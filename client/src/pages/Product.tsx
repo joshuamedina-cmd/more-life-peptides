@@ -6,7 +6,7 @@ import { PRODUCTS } from "@/data/products";
 import { VialIcon } from "@/components/VialIcon";
 import NotFound from "./not-found";
 import {
-  Star, FileCheck, ShieldCheck, FlaskConical, Minus, Plus,
+  FileCheck, ShieldCheck, FlaskConical, Minus, Plus,
   ShoppingCart, Lock, CreditCard
 } from "lucide-react";
 
@@ -43,11 +43,6 @@ export default function Product() {
 
           {/* Info */}
           <div>
-            <div className="flex items-center gap-1 mb-3">
-              {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />)}
-              <span className="ml-2 text-[12px] text-slate-500">(124 verified reviews)</span>
-            </div>
-
             <h1 className="text-[36px] md:text-[44px] font-extrabold text-[#0A1628] leading-tight tracking-tight" data-testid="text-product-title">
               {product.name} – {product.dose}
             </h1>
@@ -93,7 +88,7 @@ export default function Product() {
             <div className="mt-6 flex items-baseline gap-4">
               <span className="text-[40px] font-extrabold text-[#0A1628]" data-testid="text-price">${product.price}</span>
               {product.inStock ? (
-                <span className="text-[12px] font-bold text-emerald-600 uppercase tracking-wider">In Stock · 47 available</span>
+                <span className="text-[12px] font-bold text-emerald-600 uppercase tracking-wider">In Stock</span>
               ) : (
                 <span className="text-[12px] font-bold text-slate-500 uppercase tracking-wider">Out of Stock</span>
               )}
