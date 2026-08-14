@@ -42,8 +42,8 @@ const ITEMS: ShopItem[] = [
     dose: "10 + 10 MG",
     price: 159,
     image: specWolverine,
-    inStock: false,
-    href: "/shop",
+    inStock: true,
+    href: "https://more-life-peptides.com/products/",
     blurb: "BPC-157 + TB-500 recovery blend · Lyophilized · Third-party verified",
   },
 ];

@@ -143,8 +143,8 @@ const LAUNCH_PRODUCTS: LaunchProduct[] = [
     dose: "10 + 10 MG",
     price: 159,
     image: specWolverine,
-    inStock: false,
-    href: "/shop",
+    inStock: true,
+    href: "https://more-life-peptides.com/products/",
     blurb: "BPC-157 + TB-500 recovery blend · Lyophilized · Third-party verified",
   },
 ];
@@ -438,9 +438,9 @@ function FeaturedSpecSheets() {
                 <h3 className="text-[20px] font-extrabold text-[#0A1628] mt-1">Wolverine Blend</h3>
                 <p className="text-[13px] text-slate-600 mt-1">BPC-157 10mg + TB-500 10mg · ≥99% HPLC</p>
               </div>
-              <span className="px-4 py-2 rounded-lg bg-slate-100 text-slate-500 text-[13px] font-bold cursor-not-allowed" data-testid="link-shop-wolverine">
-                Sold Out
-              </span>
+              <a href="https://more-life-peptides.com/products/" target="_blank" rel="noopener noreferrer" className="px-4 py-2 rounded-lg bg-[hsl(221,83%,53%)] text-white text-[13px] font-bold hover:bg-[hsl(221,83%,47%)] transition-colors" data-testid="link-shop-wolverine">
+                Buy →
+              </a>
             </div>
           </div>
 
