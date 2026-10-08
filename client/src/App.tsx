@@ -4,25 +4,30 @@ import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { CartProvider } from "@/lib/cart";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
-import Shop from "@/pages/Shop";
-import Product from "@/pages/Product";
 import About from "@/pages/About";
 import LabReferral from "@/pages/LabReferral";
-import BuyReta from "@/pages/BuyReta";
-import BuyGhkcu from "@/pages/BuyGhkcu";
+import Catalog from "@/pages/Catalog";
+import Cart from "@/pages/Cart";
+import Checkout from "@/pages/Checkout";
+import OrderConfirmation from "@/pages/OrderConfirmation";
 
 function AppRouter() {
   return (
     <Switch>
       <Route path="/" component={Home} />
-      <Route path="/shop" component={Shop} />
-      <Route path="/product/:slug" component={Product} />
+      <Route path="/shop" component={Catalog} />
+      <Route path="/catalog" component={Catalog} />
+      <Route path="/cart" component={Cart} />
+      <Route path="/checkout" component={Checkout} />
+      <Route path="/order-confirmation" component={OrderConfirmation} />
+      <Route path="/product/:slug" component={Catalog} />
       <Route path="/about" component={About} />
       <Route path="/lab-referral" component={LabReferral} />
-      <Route path="/buy/reta" component={BuyReta} />
-      <Route path="/buy/ghkcu" component={BuyGhkcu} />
+      <Route path="/buy/reta" component={Catalog} />
+      <Route path="/buy/ghkcu" component={Catalog} />
       <Route component={NotFound} />
     </Switch>
   );
@@ -32,10 +37,12 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <Toaster />
-        <Router hook={useHashLocation}>
-          <AppRouter />
-        </Router>
+        <CartProvider>
+          <Toaster />
+          <Router hook={useHashLocation}>
+            <AppRouter />
+          </Router>
+        </CartProvider>
       </TooltipProvider>
     </QueryClientProvider>
   );

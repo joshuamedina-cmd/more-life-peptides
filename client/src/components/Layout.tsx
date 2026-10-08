@@ -1,6 +1,7 @@
 import { Link } from "wouter";
 import { ReactNode, useState } from "react";
 import { Logo } from "./Logo";
+import { useCart } from "@/lib/cart";
 import {
   Search, ShoppingCart, ChevronDown, Menu, X,
   CheckCircle2, FileCheck, FlaskConical, ShieldCheck, Truck,
@@ -37,6 +38,7 @@ function TopUtility() {
 
 export function NavBar() {
   const [open, setOpen] = useState(false);
+  const { count } = useCart();
   return (
     <header className="sticky top-0 z-40 bg-white border-b border-slate-200 shadow-[0_1px_0_0_rgba(15,23,42,0.04)]">
       <AnnouncementBar />
@@ -48,7 +50,7 @@ export function NavBar() {
 
         <nav className="hidden lg:flex items-center gap-8 text-[14px] font-semibold text-slate-800">
           <Link href="/" className="hover:text-[hsl(221,83%,53%)] transition-colors" data-testid="link-nav-home">Home</Link>
-          <Link href="/buy/reta" className="hover:text-[hsl(221,83%,53%)] transition-colors" data-testid="link-nav-shop">Shop Peptides</Link>
+          <Link href="/catalog" className="hover:text-[hsl(221,83%,53%)] transition-colors" data-testid="link-nav-shop">Shop Peptides</Link>
           <Link href="/about" className="hover:text-[hsl(221,83%,53%)] transition-colors" data-testid="link-nav-about">About Us</Link>
           <Link href="/lab-referral" className="hover:text-[hsl(221,83%,53%)] transition-colors" data-testid="link-nav-lab">Lab Referral Program</Link>
           <button className="flex items-center gap-1 hover:text-[hsl(221,83%,53%)] transition-colors" data-testid="button-nav-more">
@@ -60,10 +62,10 @@ export function NavBar() {
           <button className="text-slate-700 hover:text-[hsl(221,83%,53%)]" data-testid="button-search">
             <Search className="w-5 h-5" />
           </button>
-          <button className="relative text-slate-700 hover:text-[hsl(221,83%,53%)]" data-testid="button-cart">
+          <Link href="/cart" className="relative text-slate-700 hover:text-[hsl(221,83%,53%)]" data-testid="button-cart">
             <ShoppingCart className="w-5 h-5" />
-            <span className="absolute -top-1.5 -right-2 bg-[hsl(221,83%,53%)] text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">0</span>
-          </button>
+            <span className="absolute -top-1.5 -right-2 bg-[hsl(221,83%,53%)] text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center" data-testid="text-cart-count">{count}</span>
+          </Link>
           <button className="lg:hidden text-slate-700" onClick={() => setOpen(!open)} data-testid="button-menu">
             {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
@@ -73,7 +75,7 @@ export function NavBar() {
       {open && (
         <div className="lg:hidden border-t border-slate-200 bg-white px-6 py-4 space-y-3 text-sm font-semibold">
           <Link href="/" className="block py-1" onClick={() => setOpen(false)}>Home</Link>
-          <Link href="/buy/reta" className="block py-1" onClick={() => setOpen(false)}>Shop Peptides</Link>
+          <Link href="/catalog" className="block py-1" onClick={() => setOpen(false)}>Shop Peptides</Link>
           <Link href="/about" className="block py-1" onClick={() => setOpen(false)}>About Us</Link>
           <Link href="/lab-referral" className="block py-1" onClick={() => setOpen(false)}>Lab Referral Program</Link>
         </div>
@@ -113,7 +115,7 @@ export function Footer() {
           <h4 className="text-[13px] font-bold text-slate-900 mb-4 tracking-wide uppercase">Quick Links</h4>
           <ul className="space-y-2.5 text-[13px] text-slate-600">
             <li><Link href="/lab-referral" className="hover:text-[hsl(221,83%,53%)]">Lab Referral Program</Link></li>
-            <li><Link href="/buy/reta" className="hover:text-[hsl(221,83%,53%)]">Shop Peptides</Link></li>
+            <li><Link href="/catalog" className="hover:text-[hsl(221,83%,53%)]">Shop Peptides</Link></li>
           </ul>
         </div>
 
